@@ -1,0 +1,18 @@
+name: Publish teaching
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    uses: AlanWYChen/AlanWYChen.github.io/.github/workflows/deploy-alanwychen.yml@main
+    with:
+      app-path: apps/teaching
+    secrets:
+      COMPOSITE_DEPLOY_KEY: ${{ secrets.COMPOSITE_DEPLOY_KEY }}

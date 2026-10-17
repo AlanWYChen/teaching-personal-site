@@ -38,3 +38,8 @@ The `COMPOSITE_DEPLOY_KEY` Actions secret holds a dedicated deploy key for the
 composite repository; keep it in GitHub Secrets only. After app validation passes,
 check the [composite deployment runs](https://github.com/AlanWYChen/AlanWYChen.github.io/actions)
 for the final Pages deployment status. Pull requests validate without publishing.
+
+The app's `.github/workflows/publish.yml` calls the shared workflow at
+`AlanWYChen/AlanWYChen.github.io/.github/workflows/deploy-alanwychen.yml@main`,
+passing only its submodule path and deploy-key secret. Installation, formatting,
+compilation, and the automatic submodule update are maintained centrally there.

@@ -29,3 +29,12 @@ Git submodule. Its build assembles this app's output under `dist/teach/` and own
 deployment. After validation, pushes to `main` automatically update the teaching submodule
 in the deployment repository, triggering the combined Pages deployment. This
 repository does not deploy a separate Pages site.
+
+## Automatic publication controls
+
+Automatic publication is enabled through the `COMPOSITE_AUTO_DEPLOY` Actions
+variable. Set it to `false` to pause publication while retaining build checks.
+The `COMPOSITE_DEPLOY_KEY` Actions secret holds a dedicated deploy key for the
+composite repository; keep it in GitHub Secrets only. After app validation passes,
+check the [composite deployment runs](https://github.com/AlanWYChen/AlanWYChen.github.io/actions)
+for the final Pages deployment status. Pull requests validate without publishing.
